@@ -33,7 +33,7 @@ cov_annual = cov_daily * trading_days
 vol_annual = np.sqrt(np.diag(cov_annual))
 
 # cumulative returns
-cumulative = (1 + returns).cumprod()
+cumulative = np.exp(returns.cumsum())
 
 plt.figure(figsize=(10,6))
 for c in cumulative.columns:
